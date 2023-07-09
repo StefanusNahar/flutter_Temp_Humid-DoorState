@@ -71,8 +71,11 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
   void deleteAllData() {
-  FirebaseDatabase.instance.reference().child('data').child('history').remove();
-  // Add any additional initialization or updates after deleting the data.
+  FirebaseDatabase.instance
+    .reference()
+    .child('data')
+    .child('history')
+    .remove();
   }
 
   @override
@@ -147,9 +150,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   TextButton.icon(
                     onPressed: () {
-                      // Toggle the lock status
+                      // Lock status
                         isLocked = !isLocked;
-                      // Update the lock value in the Firebase Realtime Database
+                      // Update the lock
                       lockRef.set(isLocked ? 1 : 0);
                     },
                     style: TextButton.styleFrom(
